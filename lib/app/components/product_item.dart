@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/app/utils/routes.dart';
+import 'package:shop_app/app/views/product_detail_view.dart';
 
 import '../models/product.dart';
 
@@ -19,8 +21,9 @@ class ProductItem extends StatelessWidget {
           backgroundColor: Colors.black87,
           leading: IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.favorite,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
           title: Center(
@@ -30,14 +33,23 @@ class ProductItem extends StatelessWidget {
           ),
           trailing: IconButton(
             onPressed: () {},
-            icon: const Icon(
+            icon: Icon(
               Icons.shopping_cart,
+              color: Theme.of(context).colorScheme.secondary,
             ),
           ),
         ),
-        child: Image.network(
-          product.imageUrl,
-          fit: BoxFit.cover,
+        child: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushNamed(
+              RoutesConst.productDetail,
+              arguments: product,
+            );
+          },
+          child: Image.network(
+            product.imageUrl,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     );

@@ -3,10 +3,10 @@ import 'package:shop_app/app/components/product_item.dart';
 import 'package:shop_app/app/data/mock_data.dart';
 import 'package:shop_app/app/models/product.dart';
 
-class ProductsOverviewPage extends StatelessWidget {
+class ProductsOverviewView extends StatelessWidget {
   final List<Product> loadedProducts = mockProducts;
 
-  ProductsOverviewPage({super.key});
+  ProductsOverviewView({super.key});
 
   @override
   Widget build(BuildContext context) {
